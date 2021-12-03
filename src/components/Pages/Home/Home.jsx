@@ -8,11 +8,11 @@ function Home() {
     return (
         <div className="come-page">
          <ZohaliVideo/>   
-
-<HomeContent/>
+{/* <HomeContent/> */}
 
         </div>
     )
 }
 
 export default Home
+ 

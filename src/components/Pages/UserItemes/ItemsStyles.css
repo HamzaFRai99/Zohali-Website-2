@@ -51,7 +51,13 @@ justify-content: center; */
     cursor: pointer;
 }
 
-.cart-icon-red {
+.cart-icon-red{
+    color: red;
+    margin-right: 1rem;
+    font-size: 35px;
+    cursor: pointer;
+}
+.cart-icon-red.active {
     color: red;
     margin-right: 1rem;
     font-size: 35px;
@@ -186,7 +192,7 @@ justify-content: center; */
     background-color: #333;
 
     height: 100%;
-    padding: 11.5px 20px;
+    padding: 12px 20px;
     /* padding-bottom: 7px; */
     /* margin-top: 0.5px; */
     /* margin-left: 1rem;   */
@@ -194,6 +200,8 @@ justify-content: center; */
     border: 1px #222 solid;
     border-left: transparent;
     cursor: pointer;
+    position: relative;
+    bottom: 0.2px;
 }
 
 .icon-search-header:hover {

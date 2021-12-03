@@ -2,23 +2,23 @@ import React, { useState, useRef } from 'react'
 import logo from './images/zohali_mini_logo.png'
 import fulllogo from './images/zohali_logo_full.png'
 import { BsArrowLeftSquareFill, BsSearch } from 'react-icons/bs'
+import { IoIosHome } from 'react-icons/io'
+import { SiAboutdotme } from 'react-icons/si'
+import { GiShoppingBag } from 'react-icons/gi'
+import { ImNewspaper } from 'react-icons/im'
+import { MdMiscellaneousServices } from 'react-icons/md'
+import MenuItem from './MainMenu/MenuItem'
 import MainMenu from './MainMenu/MainMenu'
 
 
 
-const SideMenu = (props) => {
+const SideMenu = () => {
 
     const [inactive, setinactive] = useState(false)
     const clickhandle = () => {
         setinactive(!inactive)
         console.log('run')
     }
-
-    const clickstatic = () => {
-        setinactive(inactive)
-        console.log('run')
-    }
-
 
     const searchTextInput = React.createRef();
     const focusTextInput = () => { searchTextInput.current.focus(); }
@@ -46,19 +46,30 @@ const SideMenu = (props) => {
                     <BsArrowLeftSquareFill />
                 </div>
 
-
                 <div className="search-container">
-                    <div className={inactive ? "search-controller" : '  search-controller-hidden'}>
-                        <button className='inactive-search-controller' onClick={!inactive ? clickhandle : clickstatic}  ><BsSearch /></button>
-                        <input type="search" placeholder='Search' />
+                    <div >
+                        <div className={inactive ? "search-controller" : '  search-controller-hidden'}>
+                            <button className='inactive-search-controller' onClick={!inactive ? clickhandle : null}  ><BsSearch /></button>
+                            <input type="search" placeholder='Search' />
+                        </div>
                     </div>
                 </div>
-
                 <div className="divider"></div>
 
-                <MainMenu />
-            </div>
+                <div className="main-menu">
 
+                    <MenuItem
+                        mainMenu={[
+                            { name: 'Home', icon: <IoIosHome />, to: 'home', inactive_side_menu: inactive ? clickhandle : null },
+                            { name: 'About', icon: <SiAboutdotme />, to: 'about', inactive_side_menu: inactive ? clickhandle : null },
+                            { name: 'Store', icon: <GiShoppingBag />, to: 'store', inactive_side_menu: inactive ? clickhandle : null },
+                            { name: 'News', icon: <ImNewspaper />, to: 'news', inactive_side_menu: inactive ? clickhandle : null },
+                            { name: 'Services', icon: <MdMiscellaneousServices />, to: 'services', inactive_side_menu: inactive ? clickhandle : null },
+                        ]}
+
+                    />
+                </div>
+            </div>
         </div>
     )
 }
